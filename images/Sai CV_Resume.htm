@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">{Portfolio} </a>
+
+      <nav class="navbar">
+        <a href="#home" class="active">Accueil</a>
+        <a href="#about">About</a>
+        <a href="#skill">Compétences</a>
+        <a href="#project">Projets</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <section id="home" class="home">
+        <div class="home-content" data-scroll data-scroll-speed="-5">
+          <h3 class="mu">Bonjour, je m'appelle</h3>
+          <h1>ADJASSA Aimé</h1>
+          <h3>
+            Et je suis
+            <span class="pro-text">
+              <script>
+                var typed = new Typed(".pro-text", {
+                  strings: [
+                    "Développeur Frontend",
+                    "Développeur Backend",
+                    "Linux Administrator",
+                  ],
+                  typeSpeed: 100,
+                  backSpeed: 100,
+                  backDelay: 1000,
+                  loop: true,
+                });
+              </script>
+            </span>
+          </h3>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
+            nostrum porro voluptatibus vero delectus enim deserunt eveniet quo
+            sunt temporibus, qui corrupti! Eveniet, minus! Temporibus quo eius
+            asperiores explicabo culpa.<br />
+            <br />
+          </p>
+
+          <div class="home-sci">
+            <a href="https://github.com/SAI127001" target="_blank"
+              ><i class="bx bxl-github"></i
+            ></a>
+            <a href="https://www.linkedin.com/in/terukula-sai/" target="_blank"
+              ><i class="bx bxl-linkedin"></i
+            ></a>
+            <a href="https://wa.me/9987886552" target="_blank"
+              ><i class="bx bxl-whatsapp"></i
+            ></a>
+            <a href="https://www.instagram.com/sai_127.0.0.1/" target="_blank"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+          </div>
+          <a href="" class="btn-box" download="Sai CV/Resume">Download CV</a>
+        </div>
+
+        <div class="home-img">
+          <div class="image">
+            <img src="/images/Designer.jpeg" alt="" />
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

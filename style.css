@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+    --txt-color-p: #cb22d7;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    cursor: none;
+}
+
+body {
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+
+/*Section curseur*/
+
+.cursor {
+    width: 40px;
+    height: 40px;
+    border: 2px dashed white;
+    border-radius: 50%;
+    position: absolute;
+    animation: anim1 1s infinite alternate;
+    /* z-index: 1000;  */
+}
+
+.cursor::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    background: red;
+    border-radius: 50%;
+}
+/*Section header*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    background: linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.548),
+            var(--txt-color-p),
+            rgba(0, 0, 0, 0.548)
+    );
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: var(--txt-color-p);
+    text-shadow: 5px 5px 10px black;
+    text-decoration: none;
+    font-weight: 600;
+    pointer-events: none;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+}
+header .navbar a {
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 30px;
+    opacity: 0;
+    animation: slideTop 0.5s ease forwards;
+}
+header .navbar a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: #000000;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+header .navbar a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/*Section home*/
+main .home {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 8% 0;
+}
+
+.home-content {
+    max-width: 700px;
+    padding: 50px;
+}
+
+.home-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 0.7s;
+}
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-content h1,
+h3 {
+    text-shadow: 5px 4px 10px rgb(227, 55, 207);
+}
+
+.home-content h3 span {
+    color: var(--txt-color-p);
+}
+
+.home-content p {
+    font-size: 16px;
+    margin: 20px 0 0;
+    text-align: left;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1.3s;
+}
+
+.home-sci a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: black;
+    border: 2px solid var(--txt-color-p);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--txt-color-p);
+    text-decoration: none;
+    margin: 30px 15px 30px 0;
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.home-sci a:hover {
+    background: rgb(252, 40, 238);
+    color: black;
+    box-shadow: 0 0 20px var(--txt-color-p);
+}
+
+.btn-box {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--txt-color-p);
+    border-radius: 40px;
+    font-size: 16px;
+    color: black;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    animation: zoomIn 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.btn-box:hover {
+    box-shadow: 0 0 5px var(--txt-color-p), 0 0 25px var(--txt-color-p),
+    0 0 50px var(--txt-color-p), 0 0 100px var(--txt-color-p),
+    0 0 200px var(--txt-color-p);
+}
+
+.home-img {
+    width: 410px;
+    height: 410px;
+    opacity: 0;
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2.1s, 3.1s;
+}
+
+.image img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 350px;
+    object-fit: cover;
+}
+/*Fonction animation*/
+
+/* Section carrousel */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 7));
+    }
+}
+.slider {
+    box-shadow: 0 10px 20px -5px rgba(140, 5, 142, 0.125);
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 960px;
+}
+.slider::before,
+.slider::after {
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+}
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+.slider::before {
+    left: 0;
+    top: 0;
+}
+.slider .slide-track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+}
+.slider .slide {
+    height: 100px;
+    width: 250px;
+}
+
+/* Animation */
+@keyframes slideTop {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-24px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+@keyframes anim1 {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+
+    to {
+        transform: scale(0.7) rotate(90deg);
+    }
+}
